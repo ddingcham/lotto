@@ -15,6 +15,10 @@ public class Lotto {
 		this.lottoNumbers = lottoNumbers;
 	}
 
+	public Lotto() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int matchCount(Lotto targetLotto) {
 		// TODO Auto-generated method stub
 		int count = 0;
