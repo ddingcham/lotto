@@ -1,5 +1,5 @@
 # 로또
-## [기능 요구사항](https://nextstep.camp/courses/-KtTrisFbiAQW0Sgo7SV/-KtTwG8F5nCyhtAgNkt-/lessons)
+## [기능 요구사항](https://nextstep.camp/courses/-LEDfden1mfwSKwuhJPB/-LEDg43XGWoIiUPpRuIs/lessons/-LEmOC78lLGfms10R_P_)
 
 ## 프로그래밍 요구사항
 ### 필요한 코드만 작성하면서 진행한다. (순서 중요)

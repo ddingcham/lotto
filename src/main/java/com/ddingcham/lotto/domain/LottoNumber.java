@@ -1,6 +1,6 @@
 package com.ddingcham.lotto.domain;
 
-public class LottoNumber {
+public class LottoNumber implements Comparable<LottoNumber>{
 
 	static final int MIN_LOTTO_NUMBER = 1;
 	static final int MAX_LOTTO_NUMBER = 45;
@@ -37,7 +37,18 @@ public class LottoNumber {
 			return false;
 		return true;
 	}
-	
-	
 
+	@Override
+	public int compareTo(LottoNumber other) {
+		// TODO Auto-generated method stub
+		return Integer.compare(this.lottoNumber, other.lottoNumber);
+	}
+
+	@Override
+	public String toString() {
+		return String.valueOf(lottoNumber);
+	}
+	
+	
+	
 }
