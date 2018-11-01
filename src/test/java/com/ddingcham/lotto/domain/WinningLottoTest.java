@@ -9,17 +9,19 @@ public class WinningLottoTest {
 
 	@Test
 	public void 결과_테스트() {
-		WinningLotto answer = WinningLotto.ofInt(1, 2, 3, 4, 5, 6);
+		WinningLotto answer = WinningLotto.ofInt(42, 1, 2, 3, 4, 5, 6);
 		SoftAssertions softly = new SoftAssertions();
 
 		softly.assertThat(generateLottoResult(answer, 1, 2, 3, 4, 5, 6))
 				.as("1등 케이스").isEqualTo(Rank.FIRST);
+		softly.assertThat(generateLottoResult(answer, 1, 2, 3, 4, 5, 42))
+				.as("2등 케이스").isEqualTo(Rank.SECOND);
 		softly.assertThat(generateLottoResult(answer, 1, 2, 3, 4, 5, 7))
-				.as("2등 케이스").isEqualTo(Rank.THIRD);
+				.as("3등 케이스").isEqualTo(Rank.THIRD);
 		softly.assertThat(generateLottoResult(answer, 1, 2, 3, 4, 8, 7))
-				.as("3등 케이스").isEqualTo(Rank.FOURTH);
+				.as("4등 케이스").isEqualTo(Rank.FOURTH);
 		softly.assertThat(generateLottoResult(answer, 1, 2, 3, 9, 8, 7))
-				.as("4등 케이스").isEqualTo(Rank.FIFTH);
+				.as("5등 케이스").isEqualTo(Rank.FIFTH);
 		softly.assertThat(generateLottoResult(answer, 1, 2, 45, 9, 8, 7))
 				.as("꽝 케이스").isEqualTo(Rank.MISS);
 

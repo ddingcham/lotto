@@ -1,19 +1,37 @@
 package com.ddingcham.lotto.domain;
 
-public class LottoNumber implements Comparable<LottoNumber>{
+import java.util.HashMap;
+import java.util.Map;
+
+public class LottoNumber implements Comparable<LottoNumber> {
 
 	static final int MIN_LOTTO_NUMBER = 1;
 	static final int MAX_LOTTO_NUMBER = 45;
-	
+	static final Map<Integer, LottoNumber> LOTTO_NUMBERS;
+
 	private int lottoNumber;
 
-	public LottoNumber(int lottoNumber) {
+	static {
+		LOTTO_NUMBERS = new HashMap<Integer, LottoNumber>();
+		for (int i = MIN_LOTTO_NUMBER; i <= MAX_LOTTO_NUMBER; i++) {
+			LOTTO_NUMBERS.put(i, new LottoNumber(i));
+		}
+	}
+
+	private LottoNumber(int lottoNumber) {
 		// TODO Auto-generated constructor stub
-		if(lottoNumber < MIN_LOTTO_NUMBER || lottoNumber > MAX_LOTTO_NUMBER){
+		this.lottoNumber = lottoNumber;
+	}
+
+	public static LottoNumber ofInt(int lottoNumber) {
+		if (lottoNumber < MIN_LOTTO_NUMBER || lottoNumber > MAX_LOTTO_NUMBER) {
 			throw new IllegalArgumentException();
 		}
-		
-		this.lottoNumber = lottoNumber;
+		return LOTTO_NUMBERS.get(lottoNumber);
+	}
+
+	public static LottoNumber ofString(String lottoNumber) {
+		return ofInt(Integer.parseInt(lottoNumber.trim()));
 	}
 
 	@Override
@@ -48,7 +66,5 @@ public class LottoNumber implements Comparable<LottoNumber>{
 	public String toString() {
 		return String.valueOf(lottoNumber);
 	}
-	
-	
-	
+
 }

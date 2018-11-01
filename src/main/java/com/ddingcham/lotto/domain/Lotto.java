@@ -1,9 +1,7 @@
 package com.ddingcham.lotto.domain;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -13,12 +11,12 @@ public class Lotto {
 	private static final int LOTTO_SIZE = 6;
 	private static final List<LottoNumber> LOTTO_NUMBERS;
 		
-	private LinkedHashSet<LottoNumber> lottoNumbers;
+	private List<LottoNumber> lottoNumbers;
 	
 	static{
 		LOTTO_NUMBERS = new LinkedList<LottoNumber>();
 		for(int i=LottoNumber.MIN_LOTTO_NUMBER;i<=LottoNumber.MAX_LOTTO_NUMBER;i++){
-			LOTTO_NUMBERS.add(new LottoNumber(i));
+			LOTTO_NUMBERS.add(LottoNumber.ofInt(i));
 		}
 	}
 	
@@ -26,10 +24,9 @@ public class Lotto {
 		if(lottoNumbers.size() != LOTTO_SIZE){
 			throw new IllegalArgumentException();
 		}
-		LottoNumber[] arrayLottoNumbers = new LottoNumber[lottoNumbers.size()];
-		lottoNumbers.toArray(arrayLottoNumbers);
-		Arrays.sort(arrayLottoNumbers);
-		this.lottoNumbers = new LinkedHashSet<LottoNumber>(Arrays.asList(arrayLottoNumbers));
+		this.lottoNumbers = new LinkedList<LottoNumber>();
+		this.lottoNumbers.addAll(lottoNumbers);
+		Collections.sort(this.lottoNumbers);
 	}
 
 	public int matchCount(Lotto targetLotto) {
@@ -46,7 +43,7 @@ public class Lotto {
 	public static Lotto ofInt(Integer... numbers){
 		Set<LottoNumber> lottoNumbers = new HashSet<LottoNumber>();
 		for(int number : numbers){
-			lottoNumbers.add(new LottoNumber(number));
+			lottoNumbers.add(LottoNumber.ofInt(number));
 		}
 		return new Lotto(lottoNumbers);
 	}
@@ -109,6 +106,11 @@ public class Lotto {
 		} else if (!lottoNumbers.equals(other.lottoNumbers))
 			return false;
 		return true;
+	}
+
+	public boolean contains(LottoNumber lottoNumber) {
+		// TODO Auto-generated method stub
+		return this.lottoNumbers.contains(lottoNumber);
 	}
 	
 	
