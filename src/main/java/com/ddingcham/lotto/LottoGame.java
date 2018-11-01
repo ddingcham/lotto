@@ -1,9 +1,6 @@
 package com.ddingcham.lotto;
 
-import java.util.Arrays;
 import java.util.Scanner;
-
-import ch.qos.logback.core.subst.Tokenizer;
 
 import com.ddingcham.lotto.domain.Lotto;
 import com.ddingcham.lotto.domain.Lottoes;
@@ -24,7 +21,7 @@ public class LottoGame {
 		System.out.println("지난 주 당첨 번호를 입력해 주세요.");
 		String answerInput = scanner.nextLine().trim();
 		
-		Lotto answer = Lotto.ofInt(tokenizeAnswerNumbers(answerInput));
+		Lotto answer = Lotto.ofString(answerInput);
 		System.out.println(answer);
 		
 		System.out.println("당첨 통계");
@@ -36,12 +33,5 @@ public class LottoGame {
 		}
 	}
 	
-	public static Integer[] tokenizeAnswerNumbers(String target){
-		String[] splitResult = target.split(",");
-		Integer[] result = new Integer[splitResult.length];
-		for(int i=0;i<splitResult.length;i++){
-			result[i] = Integer.valueOf(splitResult[i].trim());
-		}
-		return result;
-	}
+
 }

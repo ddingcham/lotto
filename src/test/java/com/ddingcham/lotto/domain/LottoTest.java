@@ -1,7 +1,9 @@
 package com.ddingcham.lotto.domain;
 
 import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 import org.junit.Test;
+
 
 public class LottoTest {
 	
@@ -26,6 +28,21 @@ public class LottoTest {
 		softly.assertAll();
 	}
 	
+	@Test
+	public void ofInt(){
+		Lotto expected = Lotto.ofInt(6,5,3,4,2,1);
+		Lotto actual = Lotto.ofInt(1,2,3,4,5,6);
+		
+		Assert.assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void ofString(){
+		Lotto expected = Lotto.ofInt(1,2,3,4,5,6);
+		Lotto actual = Lotto.ofString("1, 2, 3, 4, 5, 6");
+		
+		Assert.assertEquals(expected, actual);
+	}
 
 
 }
