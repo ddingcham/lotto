@@ -1,7 +1,14 @@
 # 로또
-## [기능 요구사항](https://nextstep.camp/courses/-KtTrisFbiAQW0Sgo7SV/-KtTwG8F5nCyhtAgNkt-/lessons)
+## [기능 요구사항](https://nextstep.camp/courses/-LEDfden1mfwSKwuhJPB/-LEDg43XGWoIiUPpRuIs/lessons/-LEmOC78lLGfms10R_P_)
 
 ## 프로그래밍 요구사항
+### 필요한 코드만 작성하면서 진행한다. (순서 중요)
+* 규칙 1: 기능 요구사항에서 개발을 위해 필요한 것을 추가
+* 규칙 2: 기능 요구사항을 충족하는 테스트 코드만 작성
+* 규칙 3: 테스트 코드를 통과하는 프로덕션 코드만 작성 // 기능적으로만, 구조는 상관 X
+* 규칙 4: 리팩토링
+
+
 ### 객체지향 생활 체조 원칙을 지켜 프로그래밍한다.
 ### 객체지향 생활 체조 원칙
 
