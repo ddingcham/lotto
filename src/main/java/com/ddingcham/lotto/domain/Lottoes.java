@@ -47,6 +47,11 @@ public class Lottoes {
 		// TODO Auto-generated method stub
 		return lottoes.get(i);
 	}
+
+	public void add(Lotto addedLotto) {
+		// TODO Auto-generated method stub
+		lottoes.add(addedLotto);
+	}
 	
 	
 

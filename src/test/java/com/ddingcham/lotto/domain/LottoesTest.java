@@ -15,6 +15,15 @@ public class LottoesTest {
 		Assert.assertNotEquals(expected, lottoes.get(1));
 	}
 	
+	@Test
+	public void add(){
+		int expected = 1;
+		Lottoes lottoes = new Lottoes(expected - 1);
+		lottoes.add(Lotto.ofInt(1,2,3,4,5,6));
+		
+		Assert.assertEquals(expected, lottoes.size());
+	}
+	
 
 	@Test
 	public void 로또_1장의_가격은_1000원이다_하나케이스(){
@@ -38,6 +47,5 @@ public class LottoesTest {
 		final int price = Lottoes.DEFAULT_LOTTO_PRICE - 1;
 		Lottoes.generate(price);
 	}
-	
-	
+		
 }
