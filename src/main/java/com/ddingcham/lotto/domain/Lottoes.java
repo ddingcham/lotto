@@ -6,23 +6,14 @@ import java.util.List;
 
 public class Lottoes {
 	
-	public static final int DEFAULT_LOTTO_PRICE = 1000;
-	
 	List<Lotto> lottoes = new ArrayList<Lotto>();
+	
+	public Lottoes(){}
 	
 	public Lottoes(int size){
 		for(int i=0;i<size;i++){
 			lottoes.add(Lotto.random());
 		}
-	}
-
-	public static Lottoes generate(int price) {
-		// TODO Auto-generated method stub
-		if(price < DEFAULT_LOTTO_PRICE){
-			throw new IllegalArgumentException("구입 금액 부족");
-		}
-		
-		return new Lottoes(price / DEFAULT_LOTTO_PRICE);
 	}
 	
 	public Lottoes(Lotto... lottoes){
@@ -53,6 +44,9 @@ public class Lottoes {
 		lottoes.add(addedLotto);
 	}
 	
+	public void add(Lottoes addedLottoes){
+		lottoes.addAll(addedLottoes.lottoes);
+	}
 	
 
 }

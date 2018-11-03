@@ -1,17 +1,16 @@
 package com.ddingcham.lotto;
 
+import com.ddingcham.lotto.constant.DefaultValue;
 import com.ddingcham.lotto.domain.Lotto;
 import com.ddingcham.lotto.domain.Lottoes;
 import com.ddingcham.lotto.domain.Money;
 
 public class LottoFactory {
 	
-	public static final Money DEFAULT_PRICE = new Money(1000);
-	
 	private int constructable;
 	
 	public LottoFactory(Money totalBudget){
-		this(totalBudget, DEFAULT_PRICE);
+		this(totalBudget, DefaultValue.DEFAULT_LOTTO_PRICE);
 	}
 
 	public LottoFactory(Money totalBudget, Money unitPrice) {
@@ -49,7 +48,7 @@ public class LottoFactory {
 	
 	private void updateConstructable(int amounts){
 		if(constructable < amounts){
-			throw new RuntimeException();
+			throw new RuntimeException("amount is not constructable (constructable < amounts)");
 		}
 		constructable -= amounts;
 	}

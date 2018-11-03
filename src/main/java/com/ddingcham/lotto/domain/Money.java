@@ -18,5 +18,10 @@ public class Money {
 		}
 		return this.money / divider.money;
 	}
+
+	public int toInt() {
+		// TODO Auto-generated method stub
+		return money;
+	}
 	
 }
